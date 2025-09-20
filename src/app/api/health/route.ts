@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-import { NextResponse } from "next/server";
-
-export async function GET() {
-  return NextResponse.json({ message: "Good!" });
-=======
 import { NextRequest, NextResponse } from 'next/server'
 
 export async function GET(request: NextRequest) {
@@ -31,5 +25,4 @@ export async function GET(request: NextRequest) {
       { status: 500 }
     )
   }
->>>>>>> e32cc56e8e52abdddca9f0f7336094c2481c5cf5
 }

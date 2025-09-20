@@ -1,15 +1,3 @@
-<<<<<<< HEAD
-export default function Home() {
-  return (
-    <div className="flex flex-col items-center justify-center min-h-screen gap-8 p-4">
-      <div className="relative w-24 h-24 md:w-32 md:h-32">
-        <img
-          src="/logo.svg"
-          alt="Z.ai Logo"
-          className="w-full h-full object-contain"
-        />
-      </div>
-=======
 'use client'
 
 import Link from 'next/link'
@@ -346,28 +334,30 @@ export default function Home() {
       <section id="security" className="py-16 px-4 bg-white">
         <div className="container mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Security & Compliance</h2>
-            <p className="text-gray-600">Enterprise-grade security for sensitive medical data</p>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Security & Privacy</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Enterprise-grade security to protect your sensitive medical data
+            </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-emerald-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <Shield className="w-8 h-8 text-emerald-600" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">HIPAA Compliant</h3>
-              <p className="text-gray-600">
-                Full compliance with healthcare data protection regulations
-              </p>
-            </div>
-
             <div className="text-center">
               <div className="w-16 h-16 bg-emerald-100 rounded-lg flex items-center justify-center mx-auto mb-4">
                 <Lock className="w-8 h-8 text-emerald-600" />
               </div>
               <h3 className="text-xl font-semibold mb-2">End-to-End Encryption</h3>
               <p className="text-gray-600">
-                All data encrypted in transit and at rest
+                All data is encrypted in transit and at rest using industry-standard protocols
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-16 h-16 bg-emerald-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <Shield className="w-8 h-8 text-emerald-600" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">HIPAA Compliant</h3>
+              <p className="text-gray-600">
+                Full compliance with healthcare privacy regulations and standards
               </p>
             </div>
 
@@ -377,7 +367,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-semibold mb-2">Secure Infrastructure</h3>
               <p className="text-gray-600">
-                Enterprise-grade cloud infrastructure with regular security audits
+                Cloud-native architecture with advanced security controls
               </p>
             </div>
           </div>
@@ -388,18 +378,19 @@ export default function Home() {
       <section className="py-16 px-4 bg-emerald-600">
         <div className="container mx-auto text-center">
           <h2 className="text-3xl font-bold text-white mb-4">
-            Ready to Experience the Future of Healthcare?
+            Ready to Transform Healthcare?
           </h2>
           <p className="text-xl text-emerald-100 mb-8 max-w-2xl mx-auto">
-            Join healthcare professionals worldwide who are already using Curax AI 
-            to provide better patient care through advanced AI technology.
+            Join thousands of healthcare professionals using Curax AI to deliver better patient outcomes
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary">
-              Schedule a Demo
-            </Button>
+            <Link href="/dashboard">
+              <Button size="lg" variant="secondary">
+                Get Started Free
+              </Button>
+            </Link>
             <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-emerald-600">
-              Contact Sales
+              Schedule Demo
             </Button>
           </div>
         </div>
@@ -417,43 +408,46 @@ export default function Home() {
                 <span className="text-lg font-bold">Curax AI</span>
               </div>
               <p className="text-gray-400 text-sm">
-                Advanced AI-powered healthcare platform for precision diagnosis and patient care.
+                AI-powered healthcare platform for precision diagnosis and patient care.
               </p>
             </div>
+
             <div>
               <h4 className="font-semibold mb-4">Product</h4>
               <ul className="space-y-2 text-sm text-gray-400">
-                <li><a href="#" className="hover:text-white">Voice Diagnosis</a></li>
-                <li><a href="#" className="hover:text-white">Medical Imaging</a></li>
-                <li><a href="#" className="hover:text-white">AI Analytics</a></li>
-                <li><a href="#" className="hover:text-white">Telemedicine</a></li>
+                <li><a href="#" className="hover:text-white">Features</a></li>
+                <li><a href="#" className="hover:text-white">Pricing</a></li>
+                <li><a href="#" className="hover:text-white">API</a></li>
+                <li><a href="#" className="hover:text-white">Documentation</a></li>
               </ul>
             </div>
+
             <div>
               <h4 className="font-semibold mb-4">Company</h4>
               <ul className="space-y-2 text-sm text-gray-400">
-                <li><a href="#" className="hover:text-white">About Us</a></li>
+                <li><a href="#" className="hover:text-white">About</a></li>
+                <li><a href="#" className="hover:text-white">Blog</a></li>
                 <li><a href="#" className="hover:text-white">Careers</a></li>
                 <li><a href="#" className="hover:text-white">Contact</a></li>
-                <li><a href="#" className="hover:text-white">Press</a></li>
               </ul>
             </div>
+
             <div>
               <h4 className="font-semibold mb-4">Support</h4>
               <ul className="space-y-2 text-sm text-gray-400">
                 <li><a href="#" className="hover:text-white">Help Center</a></li>
-                <li><a href="#" className="hover:text-white">Documentation</a></li>
-                <li><a href="#" className="hover:text-white">API Status</a></li>
-                <li><a href="#" className="hover:text-white">Security</a></li>
+                <li><a href="#" className="hover:text-white">Privacy Policy</a></li>
+                <li><a href="#" className="hover:text-white">Terms of Service</a></li>
+                <li><a href="#" className="hover:text-white">Status</a></li>
               </ul>
             </div>
           </div>
+
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-400">
-            <p>&copy; 2024 Curax AI. All rights reserved. Project Aegis - Secure Healthcare AI Platform</p>
+            <p>&copy; 2024 Curax AI. All rights reserved.</p>
           </div>
         </div>
       </footer>
->>>>>>> e32cc56e8e52abdddca9f0f7336094c2481c5cf5
     </div>
   )
 }

@@ -220,8 +220,20 @@ export default function Dashboard() {
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                  <Link href="/voice-diagnosis">
+                  <Link href="/dashboard/overview">
+                    <Button className="h-20 flex-col space-y-2 bg-blue-600 hover:bg-blue-700">
+                      <Users className="w-6 h-6" />
+                      <span>Family Overview</span>
+                    </Button>
+                  </Link>
+                  <Link href="/dashboard/family">
                     <Button className="h-20 flex-col space-y-2 bg-emerald-600 hover:bg-emerald-700">
+                      <Heart className="w-6 h-6" />
+                      <span>Family Profiles</span>
+                    </Button>
+                  </Link>
+                  <Link href="/voice-diagnosis">
+                    <Button variant="outline" className="h-20 flex-col space-y-2">
                       <Mic className="w-6 h-6" />
                       <span>Voice Diagnosis</span>
                     </Button>
@@ -232,14 +244,6 @@ export default function Dashboard() {
                       <span>Image Analysis</span>
                     </Button>
                   </Link>
-                  <Button variant="outline" className="h-20 flex-col space-y-2">
-                    <Plus className="w-6 h-6" />
-                    <span>New Patient</span>
-                  </Button>
-                  <Button variant="outline" className="h-20 flex-col space-y-2">
-                    <FileText className="w-6 h-6" />
-                    <span>Generate Report</span>
-                  </Button>
                 </div>
               </CardContent>
             </Card>
