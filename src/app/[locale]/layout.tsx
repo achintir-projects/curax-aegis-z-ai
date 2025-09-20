@@ -5,13 +5,15 @@ import { Toaster } from "@/components/ui/toaster"
 
 interface LocaleLayoutProps {
   children: React.ReactNode
-  params: { locale: string }
+  params: Promise<{ locale: string }>
 }
 
 export default async function LocaleLayout({
   children,
-  params: { locale }
+  params
 }: LocaleLayoutProps) {
+  const { locale } = await params
+  
   // Validate that the incoming `locale` parameter is valid
   if (locale !== 'en' && locale !== 'es' && locale !== 'fr' && locale !== 'de' && 
       locale !== 'it' && locale !== 'pt' && locale !== 'zh' && locale !== 'ja' && 

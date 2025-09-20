@@ -14,21 +14,21 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Z.ai Code Scaffold - AI-Powered Development",
-  description: "Modern Next.js scaffold optimized for AI-powered development with Z.ai. Built with TypeScript, Tailwind CSS, and shadcn/ui.",
-  keywords: ["Z.ai", "Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui", "AI development", "React"],
-  authors: [{ name: "Z.ai Team" }],
+  title: "Curax AI - Family Health Platform",
+  description: "AI-powered family health platform with voice diagnosis, medical imaging, and comprehensive health monitoring",
+  keywords: ["Curax AI", "Family Health", "AI Diagnosis", "Medical Imaging", "Healthcare Platform"],
+  authors: [{ name: "Curax AI Team" }],
   openGraph: {
-    title: "Z.ai Code Scaffold",
-    description: "AI-powered development with modern React stack",
-    url: "https://chat.z.ai",
-    siteName: "Z.ai",
+    title: "Curax AI - Family Health Platform",
+    description: "AI-powered family health platform with comprehensive health monitoring and diagnosis",
+    url: "https://curax-ai.com",
+    siteName: "Curax AI",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Z.ai Code Scaffold",
-    description: "AI-powered development with modern React stack",
+    title: "Curax AI - Family Health Platform",
+    description: "AI-powered family health platform with comprehensive health monitoring and diagnosis",
   },
 };
 
@@ -37,14 +37,5 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
-      >
-        {children}
-        <Toaster />
-      </body>
-    </html>
-  );
+  return children;
 }
