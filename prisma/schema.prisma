@@ -19,14 +19,148 @@ model User {
   name      String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  families   Family[]
+  foodAnalyses FoodAnalysis[]
 }
 
-model Post {
+model Family {
+  id          String   @id @default(cuid())
+  name        String
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  userId       String
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  members      FamilyMember[]
+  foodAnalyses FoodAnalysis[]
+}
+
+model FamilyMember {
+  id             String   @id @default(cuid())
+  name           String
+  age            Int
+  gender         String
+  height         Float?  // in cm
+  weight         Float?  // in kg
+  bloodType      String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  familyId       String
+  family         Family   @relation(fields: [familyId], references: [id], onDelete: Cascade)
+  
+  healthConditions HealthCondition[]
+  allergens        Allergen[]
+  vitalSigns       VitalSign[]
+}
+
+model HealthCondition {
+  id           String   @id @default(cuid())
+  name         String
+  description  String?
+  severity     String   // 'mild', 'moderate', 'severe'
+  diagnosedAt  DateTime?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  memberId     String
+  member       FamilyMember @relation(fields: [memberId], references: [id], onDelete: Cascade)
+}
+
+model Allergen {
   id        String   @id @default(cuid())
-  title     String
-  content   String?
-  published Boolean  @default(false)
-  authorId  String
+  name      String
+  severity  String   // 'mild', 'moderate', 'severe'
+  reaction  String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  memberId  String
+  member    FamilyMember @relation(fields: [memberId], references: [id], onDelete: Cascade)
+}
+
+model VitalSign {
+  id          String   @id @default(cuid())
+  type        String   // 'blood_pressure', 'heart_rate', 'blood_sugar', 'weight', 'bmi', etc.
+  value       String
+  unit        String
+  measuredAt  DateTime
+  notes       String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  memberId    String
+  member      FamilyMember @relation(fields: [memberId], references: [id], onDelete: Cascade)
+}
+
+model FoodAnalysis {
+  id          String   @id @default(cuid())
+  foodName    String
+  description String?
+  imageUrl    String?
+  analysisType String  // 'image', 'voice', 'text'
+  input       String? // text description or voice transcript
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  familyId    String?
+  family      Family?  @relation(fields: [familyId], references: [id], onDelete: Cascade)
+
+  nutritionalInfo NutritionalInfo?
+  ingredients     Ingredient[]
+  familyRecommendations FamilyRecommendation[]
+}
+
+model NutritionalInfo {
+  id              String   @id @default(cuid())
+  calories        Float
+  protein         Float    // in grams
+  carbohydrates   Float    // in grams
+  fat             Float    // in grams
+  fiber           Float    // in grams
+  sugar           Float    // in grams
+  sodium          Float    // in mg
+  cholesterol     Float    // in mg
+  vitaminC        Float?   // in mg
+  calcium         Float?   // in mg
+  iron            Float?   // in mg
+  potassium       Float?   // in mg
+  vitaminD        Float?   // in mcg
+  vitaminB12      Float?   // in mcg
+  magnesium       Float?   // in mg
+  zinc            Float?   // in mg
+  
+  foodAnalysisId  String   @unique
+  foodAnalysis    FoodAnalysis @relation(fields: [foodAnalysisId], references: [id], onDelete: Cascade)
+}
+
+model Ingredient {
+  id           String   @id @default(cuid())
+  name         String
+  category     String?  // 'protein', 'carb', 'vegetable', 'fruit', 'dairy', 'spice', etc.
+  isAllergenic Boolean  @default(false)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  foodAnalysisId String
+  foodAnalysis   FoodAnalysis @relation(fields: [foodAnalysisId], references: [id], onDelete: Cascade)
+}
+
+model FamilyRecommendation {
+  id             String   @id @default(cuid())
+  memberId       String
+  recommendation String
+  concern        String?  // specific health concern
+  severity       String   // 'low', 'medium', 'high'
+  suggestion     String?  // modification suggestion
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  foodAnalysisId String
+  foodAnalysis   FoodAnalysis @relation(fields: [foodAnalysisId], references: [id], onDelete: Cascade)
 }
