@@ -45,9 +45,10 @@ export default function Home() {
             </div>
             <nav className="hidden md:flex items-center space-x-6">
               <a href="#features" className="text-gray-600 hover:text-gray-900 transition-colors">Features</a>
+              <a href="#family" className="text-gray-600 hover:text-gray-900 transition-colors">Family Health</a>
+              <a href="#food-analysis" className="text-gray-600 hover:text-gray-900 transition-colors">Food Analysis</a>
               <a href="#diagnosis" className="text-gray-600 hover:text-gray-900 transition-colors">Diagnosis</a>
               <a href="#imaging" className="text-gray-600 hover:text-gray-900 transition-colors">Imaging</a>
-              <a href="#security" className="text-gray-600 hover:text-gray-900 transition-colors">Security</a>
             </nav>
             <div className="flex items-center space-x-3">
               <Link href="/login">
@@ -79,12 +80,16 @@ export default function Home() {
             powered by state-of-the-art artificial intelligence.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700">
-              Start Diagnosis
-            </Button>
-            <Button size="lg" variant="outline">
-              Watch Demo
-            </Button>
+            <Link href="/dashboard/overview">
+              <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700">
+                View Family Dashboard
+              </Button>
+            </Link>
+            <Link href="#food-analysis">
+              <Button size="lg" variant="outline">
+                Try Food Analysis
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -103,7 +108,21 @@ export default function Home() {
             <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
               <CardHeader>
                 <div className="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center mb-4">
-                  <Mic className="w-6 h-6 text-emerald-600" />
+                  <Users className="w-6 h-6 text-emerald-600" />
+                </div>
+                <CardTitle className="text-lg">Family Health</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription>
+                  Comprehensive family health profiles with monitoring and tracking for all members
+                </CardDescription>
+              </CardContent>
+            </Card>
+
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
+              <CardHeader>
+                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                  <Mic className="w-6 h-6 text-blue-600" />
                 </div>
                 <CardTitle className="text-lg">Voice Diagnosis</CardTitle>
               </CardHeader>
@@ -116,8 +135,22 @@ export default function Home() {
 
             <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
               <CardHeader>
-                <div className="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center mb-4">
-                  <ImageIcon className="w-6 h-6 text-emerald-600" />
+                <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+                  <ImageIcon className="w-6 h-6 text-orange-600" />
+                </div>
+                <CardTitle className="text-lg">Food Analysis</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription>
+                  AI-powered food analysis for nutritional insights and health recommendations
+                </CardDescription>
+              </CardContent>
+            </Card>
+
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
+              <CardHeader>
+                <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                  <ImageIcon className="w-6 h-6 text-purple-600" />
                 </div>
                 <CardTitle className="text-lg">Medical Imaging</CardTitle>
               </CardHeader>
@@ -127,34 +160,121 @@ export default function Home() {
                 </CardDescription>
               </CardContent>
             </Card>
+          </div>
+        </div>
+      </section>
 
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
+      {/* Family Health Section */}
+      <section id="family" className="py-16 px-4 bg-gray-50">
+        <div className="container mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Family Health Management</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Comprehensive health monitoring and management for your entire family
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-emerald-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <Users className="w-8 h-8 text-emerald-600" />
+              </div>
+              <h3 className="text-xl font-semibold mb-3">Family Profiles</h3>
+              <p className="text-gray-600 mb-4">
+                Create detailed health profiles for each family member with medical history, allergies, and medications
+              </p>
+              <Link href="/dashboard/family">
+                <Button>Manage Family</Button>
+              </Link>
+            </div>
+
+            <div className="text-center">
+              <div className="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <Activity className="w-8 h-8 text-blue-600" />
+              </div>
+              <h3 className="text-xl font-semibold mb-3">Health Dashboard</h3>
+              <p className="text-gray-600 mb-4">
+                Monitor your family's health status with real-time updates, vital signs, and health event tracking
+              </p>
+              <Link href="/dashboard/overview">
+                <Button variant="outline">View Dashboard</Button>
+              </Link>
+            </div>
+
+            <div className="text-center">
+              <div className="w-16 h-16 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <Heart className="w-8 h-8 text-purple-600" />
+              </div>
+              <h3 className="text-xl font-semibold mb-3">Health Timeline</h3>
+              <p className="text-gray-600 mb-4">
+                Track medical history, appointments, medications, and health events in chronological order
+              </p>
+              <Button variant="outline">Coming Soon</Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Food Analysis Section */}
+      <section id="food-analysis" className="py-16 px-4 bg-white">
+        <div className="container mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Smart Food Analysis</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              AI-powered food analysis for nutritional insights and personalized health recommendations
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <Card className="border-0 shadow-lg">
               <CardHeader>
-                <div className="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center mb-4">
-                  <Brain className="w-6 h-6 text-emerald-600" />
+                <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+                  <ImageIcon className="w-6 h-6 text-orange-600" />
                 </div>
-                <CardTitle className="text-lg">AI Intelligence</CardTitle>
+                <CardTitle className="text-lg">Image Recognition</CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription>
-                  Advanced LLMs trained on medical data for accurate diagnosis
+                  Upload food images for instant nutritional analysis and calorie counting
                 </CardDescription>
               </CardContent>
             </Card>
 
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
+            <Card className="border-0 shadow-lg">
               <CardHeader>
-                <div className="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center mb-4">
-                  <Globe className="w-6 h-6 text-emerald-600" />
+                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                  <Mic className="w-6 h-6 text-green-600" />
                 </div>
-                <CardTitle className="text-lg">Multi-Language</CardTitle>
+                <CardTitle className="text-lg">Voice Description</CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription>
-                  Support for multiple languages with real-time translation
+                  Describe your meals naturally and get detailed nutritional breakdown
                 </CardDescription>
               </CardContent>
             </Card>
+
+            <Card className="border-0 shadow-lg">
+              <CardHeader>
+                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                  <BarChart3 className="w-6 h-6 text-blue-600" />
+                </div>
+                <CardTitle className="text-lg">Health Insights</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription>
+                  Get personalized recommendations based on dietary habits and health goals
+                </CardDescription>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="text-center mt-8">
+            <Link href="/food-analysis">
+              <Button size="lg" className="bg-orange-600 hover:bg-orange-700">
+                Try Food Analysis
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
